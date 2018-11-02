@@ -11,7 +11,9 @@ node ('master') {
 		        File readConfigFile = new File('/var/lib/jenkins/workspace/test-version/verifyJenkins/gradle/configurations.gradle')
 			 def configLines = readConfigFile.readLines()
 			//  println configLines
-		        configLines.each { String line ->
+		        configLines.each { 
+			@NonCPS
+			String line ->
         		    if (line.contains("versionName")) {
             			configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
             			print "CONFIG VER: = " + configVersion[0][0]
@@ -19,6 +21,7 @@ node ('master') {
 				    //String config_ver = configVersion[0][0]
 				      //  envVars.put(VERSION_NAME,config_ver)
         		    }
+				
                     else {
                         env.VERSION_NAME = "7.5.0"
                  }
