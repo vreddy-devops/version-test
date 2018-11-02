@@ -2,12 +2,12 @@
 node ('master') {
 	try {
 	    stage('Version') {
-	          dir('verifyJenkins') {
+	          //dir('verifyJenkins') {
 
 	        // env.VERSION_NAME = "7.5.0"
 		      // sh 'pwd'
 		       //sh 'll'
-		        String readConfigFile = new File("gradle/configurations.gradle").text
+		        String readConfigFile = new File("verifyJenkins/gradle/configurations.gradle").text
 		        def configLines = readConfigFile.readLines()
 		        configLines.each { String line ->
         		    if (line.contains("versionName")) {
@@ -18,7 +18,7 @@ node ('master') {
                     else {
                         env.VERSION_NAME = "7.5.0"
                     }
-		        }
+		        //}
 	        }
 	    }
 
