@@ -9,7 +9,7 @@ node ('master') {
 	          dir('verifyJenkins') {
 			  
 			// def readConfigFile = readFile "gradle/configurations.gradle"
-		        File readConfigFile = new File('/var/lib/jenkins/workspace/test-version/verifyJenkins/gradle/configurations.gradle').text
+		        File readConfigFile = new File('/var/lib/jenkins/workspace/test-version/verifyJenkins/gradle/configurations.gradle')
 		        def configLines = readConfigFile.readLines()
 			//  println configLines
 		    //    configLines.each { String line ->
