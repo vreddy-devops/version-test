@@ -7,8 +7,8 @@ node ('master') {
    		}
 	    stage('Version') {
 	          dir('verifyJenkins') {
-			def readConfigFile = readFile "gradle/configurations.gradle"
-		       // String readConfigFile = new File('gradle/configurations.gradle').text
+			// def readConfigFile = readFile "gradle/configurations.gradle"
+		        String readConfigFile = new File('gradle/configurations.gradle').text
 		        def configLines = readConfigFile.readLines()
 		        configLines.each { String line ->
         		    if (line.contains("versionName")) {
