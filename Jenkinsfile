@@ -6,8 +6,7 @@ node ('master') {
 		  
    		}
 	    stage('Version') {
-	          dir('verifyJenkins') {
-			  
+	          dir('verifyJenkins') {  
 			// def readConfigFile = readFile "gradle/configurations.gradle"
 		        File readConfigFile = new File('/var/lib/jenkins/workspace/test-version/verifyJenkins/gradle/configurations.gradle')
 			 def configLines = readConfigFile.readLines()
@@ -16,7 +15,6 @@ node ('master') {
         		    if (line.contains("versionName")) {
             			configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
             			print "CONFIG VER: = " + configVersion[0][0]
-				    @NonCPS
 				    env.VERSION_NAME = configVersion[0][0]
 				    //String config_ver = configVersion[0][0]
 				        //env.put(VERSION_NAME,config_ver)
