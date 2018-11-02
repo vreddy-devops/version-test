@@ -10,7 +10,8 @@ node ('master') {
 			  
 			// def readConfigFile = readFile "gradle/configurations.gradle"
 		        File readConfigFile = new File('/var/lib/jenkins/workspace/test-version/verifyJenkins/gradle/configurations.gradle').text
-		    //    def configLines = readConfigFile.readLines()
+		        def configLines = readConfigFile.readLines()
+			  println configLines
 		    //    configLines.each { String line ->
         	//	    if (line.contains("versionName")) {
             	//		configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
