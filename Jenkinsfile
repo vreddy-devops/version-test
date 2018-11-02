@@ -16,7 +16,7 @@ node ('master') {
         		    if (line.contains("versionName")) {
             			configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
             			print "CONFIG VER: = " + configVersion[0][0]
-				        env.VERSION_NAME = configVersion[0][0]
+				        env.put(VERSION_NAME,configVersion[0][0])
         		    }
                     else {
                         env.VERSION_NAME = "7.5.0"
