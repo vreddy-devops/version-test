@@ -1,13 +1,19 @@
 #!groovy
 node ('master') {
 	try {
+		stage('Preparation') {
+		  git branch: '$branch', url: 'git@github.com:vreddy-devops/version-test.git'
+		  rtGradle.tool = "Gradle_35"
+		  rtGradle.resolver repo:'repo', server: serverArti
+		  rtGradle.useWrapper = false
+   		}
 	    stage('Version') {
-	          //dir('verifyJenkins') {
+	          dir('verifyJenkins') {
 
 	        // env.VERSION_NAME = "7.5.0"
 		      // sh 'pwd'
 		       //sh 'll'
-		        String readConfigFile = new File("var/lib/jenkins/workspace/test-version/verifyJenkins/gradle/configurations.gradle").text
+		        String readConfigFile = new File("verifyJenkins/gradle/configurations.gradle").text
 		        def configLines = readConfigFile.readLines()
 		        configLines.each { String line ->
         		    if (line.contains("versionName")) {
@@ -18,7 +24,7 @@ node ('master') {
                     else {
                         env.VERSION_NAME = "7.5.0"
                     }
-		        //}
+		        }
 	        }
 	    }
 
