@@ -12,16 +12,16 @@ node ('master') {
 		        File readConfigFile = new File('/var/lib/jenkins/workspace/test-version/verifyJenkins/gradle/configurations.gradle')
 		        def configLines = readConfigFile.readLines()
 			//  println configLines
-		    //    configLines.each { String line ->
-        	//	    if (line.contains("versionName")) {
-            	//		configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
-            	//		print "CONFIG VER: = " + configVersion[0][0]
-		//		        env.VERSION_NAME = configVersion[0][0]
-        	//	    }
-                  //  else {
-                    //    env.VERSION_NAME = "7.5.0"
-                  //  }
-		    //    }
+		        configLines.each { String line ->
+        		    if (line.contains("versionName")) {
+            			configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
+            			print "CONFIG VER: = " + configVersion[0][0]
+				        env.VERSION_NAME = configVersion[0][0]
+        		    }
+                    else {
+                        env.VERSION_NAME = "7.5.0"
+                 }
+		    }
 	        }
 	    }
 
