@@ -20,7 +20,7 @@ node ('master') {
                   //  else {
                     //    env.VERSION_NAME = "7.5.0"
                   //  }
-		        }
+		    //    }
 	        }
 	    }
 
