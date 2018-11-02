@@ -10,14 +10,16 @@ node ('master') {
 			  
 			// def readConfigFile = readFile "gradle/configurations.gradle"
 		        File readConfigFile = new File('/var/lib/jenkins/workspace/test-version/verifyJenkins/gradle/configurations.gradle')
-		        def configLines = readConfigFile.readLines()
+		         @NonCPS
+			 def configLines = readConfigFile.readLines()
 			//  println configLines
 		        configLines.each { String line ->
         		    if (line.contains("versionName")) {
             			configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
             			print "CONFIG VER: = " + configVersion[0][0]
-				    String config_ver = configVersion[0][0]
-				        env.put(VERSION_NAME,config_ver)
+				    env.VERSION_NAME = configVersion[0][0]
+				    //String config_ver = configVersion[0][0]
+				        //env.put(VERSION_NAME,config_ver)
         		    }
                     else {
                         env.VERSION_NAME = "7.5.0"
