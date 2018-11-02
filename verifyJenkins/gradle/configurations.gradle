@@ -5,6 +5,6 @@ ext {
             targetSdkVersion : 27,
             compileSdkVersion: 27,
             versionCode      : 788,
-            versionName      : "7.6.0"
+            versionName      : "8.6.0"
     ]
 }
