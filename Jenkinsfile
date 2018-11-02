@@ -9,7 +9,7 @@ node ('master') {
 	          dir('verifyJenkins') {
 			  
 			// def readConfigFile = readFile "gradle/configurations.gradle"
-		        File readConfigFile = new File('gradle/configurations.gradle')
+		        File readConfigFile = new File('/var/lib/jenkins/workspace/test-version/verifyJenkins/gradle/configurations.gradle')
 		        def configLines = readConfigFile.readLines()
 		        configLines.each { String line ->
         		    if (line.contains("versionName")) {
