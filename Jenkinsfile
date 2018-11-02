@@ -2,7 +2,7 @@
 node ('master') {
 	try {
 		stage('Preparation') {
-		  git branch: '$branch', url: 'git@github.com:vreddy-devops/version-test.git'
+		  git branch: 'master', url: 'git@github.com:vreddy-devops/version-test.git'
 		  rtGradle.tool = "Gradle_35"
 		  rtGradle.resolver repo:'repo', server: serverArti
 		  rtGradle.useWrapper = false
