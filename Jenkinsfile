@@ -14,9 +14,8 @@ node ('master') {
 		        configLines.each { 
 			String line ->
         		    if (line.contains("versionName")) {
-				println versionName
-            			//configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
-            		//	print "CONFIG VER: = " + configVersion[0][0]
+            			configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
+            			print "CONFIG VER: = " + configVersion[0][0]
 		        //	env.VERSION_NAME = configVersion[0][0]
 				    //String config_ver = configVersion[0][0]
 				      //  envVars.put(VERSION_NAME,config_ver)
