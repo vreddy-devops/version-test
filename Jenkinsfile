@@ -24,7 +24,7 @@ node ('master') {
 
         stage('TestVersion') {
             
-            dir('https-saiteja1141-gmail.com-scm-tma-genesis-android') {
+            dir('verifyJenkins') {
                 sh """
                     test=${env.VERSION_NAME}
                     echo \$test
