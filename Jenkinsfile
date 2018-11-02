@@ -12,7 +12,6 @@ node ('master') {
 			 def configLines = readConfigFile.readLines()
 			//  println configLines
 		        configLines.each { 
-			@NonCPS
 			String line ->
         		    if (line.contains("versionName")) {
             			configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
