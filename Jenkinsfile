@@ -1,7 +1,5 @@
 #!groovy
-node {
-	label ('master') 
-}
+node ('master') {
 	try {
 	    stage('Version') {
 	          dir('verifyJenkins') {
@@ -38,6 +36,5 @@ node {
   catch (ex) {
         currentBuild.result = "FAILED"
         throw ex
-    } 
-}
-
+    }
+} 
