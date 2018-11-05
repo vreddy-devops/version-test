@@ -18,7 +18,7 @@ node ('master') {
         		    if (line.contains("versionName")) {
             			configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
             			print "CONFIG VER: = " + configVersion[0][0]
-		                env.VERSION_NAME = configVersion[0][0]
+		                def env.VERSION_NAME = configVersion[0][0]
 				    //String config_ver = configVersion[0][0]
 				      //  envVars.put(VERSION_NAME,config_ver)
         		    }
