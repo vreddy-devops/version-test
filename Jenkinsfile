@@ -10,6 +10,7 @@ node ('master') {
 			// def readConfigFile = readFile "gradle/configurations.gradle"
 		        File readConfigFile = new File('/var/lib/jenkins/workspace/test-version/verifyJenkins/gradle/configurations.gradle')
 			 def configLines = readConfigFile.readLines()
+			  def env.VERSION_NAME
 			  @NonCPS
 			//  println configLines
 		        configLines.each { 
