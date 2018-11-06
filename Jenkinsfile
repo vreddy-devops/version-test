@@ -23,9 +23,9 @@ node ('master') {
 				      //  envVars.put(VERSION_NAME,config_ver)
         		    }
 				
-                    else {
-                        env.VERSION_NAME = "7.5.0"
-                 }
+                  //  else {
+                    //    env.VERSION_NAME = "7.5.0"
+                // }
 		    }
 	        }
 	    }
